@@ -2,6 +2,7 @@ import { View, Text, ActivityIndicator } from 'react-native'
 import React, { useContext, useEffect } from 'react'
 import {PeliculasContext} from '../../navigation/index'
 import ghibliApi from '../../config/axiosGhibli'; // Configuración del endpoint
+import FilmItem from '../FilmItem';
 
 const ListFilms = () => {
     const {peliculas, setPeliculas}: any = useContext(PeliculasContext)
@@ -25,7 +26,7 @@ const ListFilms = () => {
     return (
         <View>
             {peliculas.map((item: any, i: any) => {
-                return <Text key={i}>Item </Text>
+                return <FilmItem key={i} film={item} />
             })}
         </View>
     )
