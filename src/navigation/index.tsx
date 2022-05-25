@@ -1,11 +1,21 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import React, { createContext, useEffect, useState } from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import StackNavigator from './StackNavigator';
+
+export const PeliculasContext = createContext({});
+
 
 const Index = () => {
+
+  const [peliculas, setPeliculas] = useState([]);
+
   return (
-    <View>
-      <Text>Index</Text>
-    </View>
+    <PeliculasContext.Provider value={{peliculas, setPeliculas}}>
+        <NavigationContainer>
+          <StackNavigator />
+        </NavigationContainer>
+    </PeliculasContext.Provider>
   )
 }
 
