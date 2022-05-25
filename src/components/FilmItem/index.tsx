@@ -1,9 +1,18 @@
 import { View, Text, Image, Dimensions } from 'react-native'
 import React from 'react'
 
+type FilmItem = {
+    film: Film;
+}
+type Film = {
+    image: string;
+    title: string;
+    original_title: string;
+}
+
 const width = Dimensions.get('window').width;
 
-const FilmItem = ({film}) => {
+const FilmItem = ({film}: FilmItem) => {
   return (
     <View>
         <Image
