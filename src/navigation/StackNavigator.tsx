@@ -2,6 +2,7 @@ import * as React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from '../screens/Home';
 import Details from '../screens/Details'
+import Cam from '../screens/Camera';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +32,7 @@ export default function App() {
         name="Details"
         component={Details}
       />
+      <Stack.Screen name="Cam" component={Cam} />
     </Stack.Navigator>
   );
 }

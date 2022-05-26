@@ -1,8 +1,8 @@
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import ListFilms from '../../components/ListFilms'
 
-const Index = () => {
+const Index = ({navigation}: any) => {
   return (
     <SafeAreaView>
         <View style={{...styles.sombras}}>
@@ -11,6 +11,11 @@ const Index = () => {
             <Text style={styles.tituloTwo}>Ghibli</Text>
           </Text>
         </View>
+        <TouchableOpacity
+          onPress={()=>navigation.navigate('Cam')}
+        >
+          <Text>Photo</Text>
+        </TouchableOpacity>
         <ListFilms />
     </SafeAreaView>
   )
