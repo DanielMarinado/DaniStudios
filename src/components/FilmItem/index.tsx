@@ -6,13 +6,17 @@ const width = Dimensions.get('window').width;
 
 const FilmItem = ({film}: IFilmItem) => {
   return (
-    <View>
+    <View style={{
+      alignItems: 'center',
+      marginHorizontal: 5,
+      marginVertical: 5
+    }}>
         <Image
         source={{uri: film?.image}}
-        style={{height: 300, width: width * 0.9, borderRadius: 5}}
+        style={{height: 220, width: width * 0.4, borderRadius: 5}}
       />
-      <Text>Title: {film.title}</Text>
-      <Text>Original Title: {film.original_title}</Text>
+      <Text>{film.title.substring(0,13)}...</Text>
+      <Text>{film.original_title.substring(0,4)}...</Text>
     </View>
   )
 }

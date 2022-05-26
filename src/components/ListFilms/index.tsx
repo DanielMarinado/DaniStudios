@@ -1,4 +1,4 @@
-import { View, Text, ActivityIndicator } from 'react-native'
+import { View, Text, ActivityIndicator, FlatList } from 'react-native'
 import React, { useContext, useEffect } from 'react'
 import {PeliculasContext} from '../../navigation/index'
 import ghibliApi from '../../config/axiosGhibli'; // Configuración del endpoint
@@ -24,10 +24,20 @@ const ListFilms = () => {
     if(peliculas.length<=0) return <ActivityIndicator size={'large'} style={{padding: 20}} />; 
     
     return (
-        <View>
-            {peliculas.map((item: any, i: any) => {
-                return <FilmItem key={i} film={item} />
-            })}
+        // <View>
+        //     {peliculas.map((item: any, i: any) => {
+        //         return <FilmItem key={i} film={item} />
+        //     })}
+        // </View>
+        <View style={{alignItems: 'center'}}>
+            <FlatList
+                numColumns={2}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
+                data={peliculas}
+                renderItem={({item, index})=><FilmItem key={index} film={item} /> }
+                keyExtractor={item => item.id}
+            />
         </View>
     )
 }
