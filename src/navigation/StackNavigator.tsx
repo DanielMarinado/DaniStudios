@@ -9,6 +9,7 @@ export default function App() {
   return (
     <Stack.Navigator 
       screenOptions={{ 
+        headerBackTitle: 'Atrás',
         headerStyle: { 
           backgroundColor: '#D49624' 
         },
