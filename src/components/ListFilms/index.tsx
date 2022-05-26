@@ -24,11 +24,6 @@ const ListFilms = () => {
     if(peliculas.length<=0) return <ActivityIndicator size={'large'} style={{padding: 20}} />; 
     
     return (
-        // <View>
-        //     {peliculas.map((item: any, i: any) => {
-        //         return <FilmItem key={i} film={item} />
-        //     })}
-        // </View>
         <View style={{alignItems: 'center'}}>
             <FlatList
                 numColumns={2}
@@ -37,6 +32,15 @@ const ListFilms = () => {
                 data={peliculas}
                 renderItem={({item, index})=><FilmItem key={index} film={item} /> }
                 keyExtractor={item => item.id}
+                ListFooterComponent={
+                <View style={{
+                    backgroundColor: 'black',
+                    width: '100%',
+                    minHeight: 180,
+                    marginHorizontal: 2,
+                }}>
+                    <Text style={{color: 'white', textAlign: 'center', marginHorizontal: 2 ,marginVertical : 2}}>.::DaniSoft::. ||| 2022</Text>
+                </View>}
             />
         </View>
     )
