@@ -5,6 +5,7 @@ import StackNavigator from './StackNavigator';
 import { Camera } from 'react-native-vision-camera';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Cam from '../screens/Camera';
+import Gallery from '../screens/Gallery';
 
 
 export const PeliculasContext = createContext({});
@@ -26,56 +27,66 @@ const Index = () => {
   
 
   const [peliculas, setPeliculas] = useState([]);
+  const [photo, setPhoto] = useState();
+  const [photoTaken, setPhotoTaken] = useState(0);
+
+
 
   return (
-    <PeliculasContext.Provider value={{peliculas, setPeliculas}}>
-        <NavigationContainer>
-          <StatusBar 
-            backgroundColor = {'black'}
-            barStyle = "light-content"
+    <PeliculasContext.Provider value={{
+      peliculas, 
+      setPeliculas,
+      photo,
+      setPhoto,
+      photoTaken,
+      setPhotoTaken
+    }}>
+      <NavigationContainer>
+        <StatusBar 
+          backgroundColor = {'black'}
+          barStyle = "light-content"
+        />
+        <Drawer.Navigator
+          initialRouteName='Stack'
+          screenOptions={{
+            headerShown: false,
+            drawerContentStyle: {
+              backgroundColor: 'black'
+            },
+            drawerActiveTintColor: 'orange',
+            drawerInactiveTintColor: '#EFFFFD',
+            headerStyle: {
+              backgroundColor: '#42C2FF',
+            },
+            headerTintColor: '#fff'
+          }}
+        >
+          <Drawer.Screen 
+            name="StackNavigator" 
+            component={StackNavigator} 
+            options={{ 
+              title: 'Home',
+              headerTitle: 'Home' 
+            }} 
           />
-          <Drawer.Navigator
-            initialRouteName='Stack'
-            screenOptions={{
-              headerShown: false,
-              drawerContentStyle: {
-                backgroundColor: 'black'
-              },
-              // drawerActiveBackgroundColor: '#85F4FF',
-              // drawerInactiveBackgroundColor: '#B8FFF9',
-              drawerActiveTintColor: 'orange',
-              drawerInactiveTintColor: '#EFFFFD',
-              headerStyle: {
-                backgroundColor: '#42C2FF',
-              },
-              headerTintColor: '#fff'
-            }}
-          >
-            <Drawer.Screen 
-              name="Inicio" 
-              component={StackNavigator} 
-              options={{ 
-                headerTitle: 'Inicio' 
-              }} 
-            />
-            <Drawer.Screen 
-              name="Camera" 
-              component={Cam} 
-              options={{ 
-                unmountOnBlur: true, 
-                headerTitle: 'Camera' ,
-              }} 
-            />
-            <Drawer.Screen 
-              name="See Photo" 
-              component={Cam} 
-              options={{ 
-                unmountOnBlur: true, 
-                headerTitle: 'See Photo' ,
-              }} 
-            />
-          </Drawer.Navigator>
-        </NavigationContainer>
+          <Drawer.Screen 
+            name="Camera" 
+            component={Cam} 
+            options={{ 
+              unmountOnBlur: true, 
+              headerTitle: 'Camera' ,
+            }} 
+          />
+          <Drawer.Screen 
+            name="See Photo" 
+            component={Gallery} 
+            options={{ 
+              unmountOnBlur: true, 
+              headerTitle: 'See Photo' ,
+            }} 
+          />
+        </Drawer.Navigator>
+      </NavigationContainer>
     </PeliculasContext.Provider>
   )
 }
