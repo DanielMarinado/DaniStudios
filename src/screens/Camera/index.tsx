@@ -1,11 +1,15 @@
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import React, {useRef, useContext} from 'react';
+import React, {useRef, useContext, useEffect} from 'react';
 import {useCameraDevices, Camera} from 'react-native-vision-camera';
+import { getDrawerStatusFromState } from '@react-navigation/drawer';
 
-const Cam = () => {
+
+const Cam = ({navigation}: any) => {
   const camera: any = useRef();
   const devices = useCameraDevices();
   const device = devices.front;
+  const isDrawerOpen = getDrawerStatusFromState(navigation.getState()) === 'open';
+
 
   if (device == null) return <Text>Loading</Text>;
 

@@ -11,11 +11,11 @@ const Index = ({navigation}: any) => {
             <Text style={styles.tituloTwo}>Ghibli</Text>
           </Text>
         </View>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={()=>navigation.navigate('Cam')}
         >
           <Text>Photo</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <ListFilms />
     </SafeAreaView>
   )
