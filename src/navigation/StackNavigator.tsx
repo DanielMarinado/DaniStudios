@@ -27,7 +27,7 @@ export default function App() {
       />
       <Stack.Screen
         options={{
-          title: 'Detalles'
+          title: 'Details'
         }}
         name="Details"
         component={Details}
