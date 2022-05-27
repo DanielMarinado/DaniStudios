@@ -10,6 +10,7 @@ const FilmItem = ({film}: IFilmItem) => {
 
   return (
     <TouchableOpacity
+      activeOpacity={0.8}
       onPress={()=>navigation.navigate('Details', {film})}
     >
       <View style={styles.card}>
