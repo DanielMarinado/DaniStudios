@@ -78,11 +78,11 @@ const Index = () => {
             }} 
           />
           <Drawer.Screen 
-            name="See Photo" 
+            name="Gallery" 
             component={Gallery} 
             options={{ 
               unmountOnBlur: true, 
-              headerTitle: 'See Photo' ,
+              headerTitle: 'Gallery' ,
             }} 
           />
         </Drawer.Navigator>
